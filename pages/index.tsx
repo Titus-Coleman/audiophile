@@ -1,9 +1,11 @@
+import IndexLayout from '@/layout';
 import { Manrope } from '@next/font/google';
 import Head from 'next/head';
-import About from './components/About';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import ProductShowcase from './components/ProductShowcase';
 
 const manrope = Manrope({
   weight: ['200', '300', '400', '500', '700', '800'],
@@ -26,10 +28,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main>
+      <IndexLayout>
+        <Hero />
         <Categories />
-        <About />
-      </main>
+        <ProductShowcase />
+      </IndexLayout>
       <Footer />
     </>
   );
