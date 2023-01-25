@@ -4,8 +4,8 @@ function Footer() {
   return (
     <footer className=" bg-black">
       <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-10 pb-16 place-items-center mx-6 ">
-        <div className="tablet:justify-self-start mobile:col-span-1 tablet:col-span-2 desktop:col-span-1">
-          <div className="bg-caramel h-1 w-24 " />
+        <div className="tablet:justify-self-start mobile:justify-self-center mobile:col-span-1 tablet:col-span-2 desktop:col-span-1">
+          <div className="bg-caramel h-1 w-24 mobile:mx-auto tablet:mx-0 desktop:mx-0" />
           <div className="mt-10">
             <svg width="143" height="25" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -16,11 +16,23 @@ function Footer() {
             </svg>
           </div>
         </div>
-        <div className="items-center mobile:col-span-1 tablet:inline-flex tablet:justify-self-start desktop:inline-flex gap-4 uppercase text-overline tablet:text-sub-title text-white font-medium desktop:text-sub-title desktop:justify-self-end desktop:col-start-2 desktop:align-text-bottom">
-          <Link href={'#home'}>Home</Link>
-          <Link href={'#headphones'}>Headphones</Link>
-          <Link href={'#speakers'}>Speakers</Link>
-          <Link href={'#earphones'}>Earphones</Link>
+
+        <div className="flex flex-col mobile:items-center tablet:flex-row gap-4 tablet:justify-self-start desktop:justify-self-end ">
+          <Link className="hover:text-caramel" href={'#home'}>
+            HOME
+          </Link>
+
+          <Link className="hover:text-caramel" href={'#headphones'}>
+            HEADPHONES
+          </Link>
+
+          <Link className="hover:text-caramel" href={'#speakers'}>
+            SPEAKERS
+          </Link>
+
+          <Link className="hover:text-caramel" href={'#earphones'}>
+            EARPHONES
+          </Link>
         </div>
         <div className="mobile:col-span-1 tablet:col-span-2 desktop:col-span-1">
           <p className="text-center text-sub-title tablet:text-left tablet:mx-0">

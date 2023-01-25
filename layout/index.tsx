@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 function IndexLayout({ children }: { children: ReactNode }) {
   return (
-    <main>
+    <main className="bg-white">
       {children}
       <About />
     </main>

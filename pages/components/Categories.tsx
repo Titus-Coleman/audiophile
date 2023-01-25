@@ -3,21 +3,20 @@ import Link from 'next/link';
 
 function Categories() {
   return (
-    <section className="py-28 bg-white place-content-center">
-      <div className="grid grid-flow-row gap-20 tablet:grid-flow-col tablet:gap-2 mx-6">
-        <div className="bg-grey w-auto h-[165px] rounded-xl">
-          <figure className="relative">
+    <section className="py-28 bg-white place-content-center desktop:mx-16">
+      <div className="grid grid-row-3 gap-20 tablet:grid-cols-3 tablet:gap-2 mx-6 ">
+        <div className="bg-grey w-auto h-[165px] rounded-xl items-center">
+          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
             <Image
-              className={'absolute -top-14 inset-x-16'}
+              className={'absolute'}
               src={
                 '/assets/shared/desktop/image-category-thumbnail-headphones.png'
               }
               alt={'headphones'}
-              width={150}
-              height={120}
+              fill
             />
           </figure>
-          <div className="flex flex-col items-center pt-20 m-auto ">
+          <div className="flex flex-col items-center mx-auto -mt-12">
             <h6 className="text-black mb-3">HEADPHONES</h6>
             <Link className="inline-flex items-center" href={'/headphones'}>
               SHOP
@@ -39,18 +38,17 @@ function Categories() {
           </div>
         </div>
         <div className="bg-grey w-auto h-[165px] rounded-xl">
-          <figure className="relative">
+          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
             <Image
-              className={'absolute -top-14 inset-x-12'}
+              className={'absolute'}
               src={
                 '/assets/shared/desktop/image-category-thumbnail-speakers.png'
               }
               alt={'speakers'}
-              width={150}
-              height={120}
+              fill
             />
           </figure>
-          <div className="flex flex-col items-center pt-20 m-auto ">
+          <div className="flex flex-col items-center mx-auto -mt-12">
             <h6 className="text-black mb-3">SPEAKERS</h6>
             <Link className="inline-flex items-center" href={'/speakers'}>
               SHOP
@@ -72,18 +70,17 @@ function Categories() {
           </div>
         </div>
         <div className="bg-grey w-auto h-[165px] rounded-xl">
-          <figure className="relative">
+          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
             <Image
-              className={'absolute -top-14 inset-x-14'}
+              className={'absolute'}
               src={
                 '/assets/shared/desktop/image-category-thumbnail-earphones.png'
               }
               alt={'earphones'}
-              width={150}
-              height={120}
+              fill
             />
           </figure>
-          <div className="flex flex-col items-center pt-20 m-auto ">
+          <div className="flex flex-col items-center mx-auto -mt-12">
             <h6 className="text-black mb-3">EARPHONES</h6>
             <Link className="inline-flex items-center" href={'/earphones'}>
               SHOP

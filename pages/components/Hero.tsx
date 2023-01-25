@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import TanButton from './Button';
 
 function Hero() {
   return (
@@ -12,11 +12,7 @@ function Hero() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Link href={'/'}>
-          <button className="w-40 h-12 text-sub-title font-bold text-white bg-caramel mt-8 mb-20">
-            SEE PRODUCT
-          </button>
-        </Link>
+        <TanButton link="/" />
       </div>
     </section>
   );
