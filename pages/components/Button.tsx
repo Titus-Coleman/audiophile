@@ -6,7 +6,7 @@ interface Props {
 
 export const ClearButton = ({ link }: Props) => {
   return (
-    <Link href={link}>
+    <Link href={{ pathname: link }}>
       <button className="h-12 w-40 border border-solid border-black text-sub-title font-medium hover:bg-black hover:text-white">
         SEE PRODUCT
       </button>
@@ -16,7 +16,7 @@ export const ClearButton = ({ link }: Props) => {
 
 export const BlackButton = ({ link }: Props) => {
   return (
-    <Link href={link}>
+    <Link href={{ pathname: link }}>
       <button className="h-12 w-40 bg-black font-medium text-sub-title hover:bg-[#4C4C4C] z-40">
         SEE PRODUCT
       </button>
@@ -26,7 +26,7 @@ export const BlackButton = ({ link }: Props) => {
 
 export const AddToCartButton = ({ link }: Props) => {
   return (
-    <Link href={link}>
+    <Link href={{ pathname: link }}>
       <button className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude">
         ADD TO CART
       </button>
@@ -36,7 +36,7 @@ export const AddToCartButton = ({ link }: Props) => {
 
 export default function TanButton({ link }: Props) {
   return (
-    <Link href={link}>
+    <Link href={{ pathname: link }}>
       <button className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude">
         SEE PRODUCT
       </button>

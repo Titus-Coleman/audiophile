@@ -12,7 +12,7 @@ function Hero() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <TanButton link="/" />
+        <TanButton link={'/'} />
       </div>
     </section>
   );
