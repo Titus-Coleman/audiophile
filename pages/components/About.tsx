@@ -3,10 +3,10 @@ import Image from 'next/image';
 export default function About() {
   return (
     <section className="grid desktop:grid-cols-2 gap-6 bg-white w-screen pt-32 pb-32 px-6 ">
-      <figure className="relative overflow-hidden rounded-lg h-72 w-auto aspect-auto object-fit desktop:w-[620px] desktop:h-[588px] desktop:mx-16 grid-flow-col-dense">
+      <figure className="relative overflow-hidden rounded-lg h-72 w-auto object-cover desktop:h-[588px] desktop:ml-16 grid-flow-col-dense">
         <Image
           className={'absolute'}
-          src={'/assets/shared/desktop/image-best-gear.jpg'}
+          src={'/assets/shared/tablet/image-best-gear.jpg'}
           alt={'best gear'}
           fill
         />

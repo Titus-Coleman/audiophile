@@ -27,7 +27,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="desktop:flex desktop:flex-row desktop:gap-8 desktop:text-white desktop:visible desktop:mr-96 tablet:invisible mobile:invisible">
+          <div className="desktop:flex desktop:flex-row desktop:gap-8 desktop:text-white desktop:visible desktop:mr-96 tablet:invisible mobile:invisible mobile:hidden">
             <Link className="hover:text-caramel" href={'#home'}>
               HOME
             </Link>

@@ -41,7 +41,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/assets/home/mobile/image-header.jpg')",
-
+        desktopHero:
+          'url(https://res.cloudinary.com/duniv0ekp/image/upload/v1674610470/audiophile/home/desktop/image-hero_gqxuzo.jpg)',
+        tabletHero:
+          'url(https://res.cloudinary.com/duniv0ekp/image/upload/v1674610471/audiophile/home/tablet/image-header_din7tb.jpg)',
         circles: "url('/assets/home/desktop/pattern-circles.svg')",
 
         zx7: "url('/assets/home/mobile/image-speaker-zx7.jpg')",
