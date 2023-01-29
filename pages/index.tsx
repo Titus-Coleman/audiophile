@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ProductShowcase from './components/ProductShowcase';
+// import { Products } from '../typings';
+// import { fetchProducts } from '../utils/fetchProducts';
 
 const manrope = Manrope({
   weight: ['200', '300', '400', '500', '700', '800'],
