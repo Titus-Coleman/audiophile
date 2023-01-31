@@ -1,19 +1,24 @@
 import IndexLayout from '@/layout';
 import { Manrope } from '@next/font/google';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { Product } from '../typings';
+import { fetchProducts } from '../utils/fetchProducts';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ProductShowcase from './components/ProductShowcase';
-// import { Products } from '../typings';
-// import { fetchProducts } from '../utils/fetchProducts';
 
 const manrope = Manrope({
   weight: ['200', '300', '400', '500', '700', '800'],
   style: ['normal'],
   subsets: ['latin'],
 });
+
+type Props = {
+  products: Product[];
+};
 
 export default function Home() {
   return (
@@ -39,3 +44,14 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const products: Product[] = await fetchProducts();
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 10,
+  };
+};
