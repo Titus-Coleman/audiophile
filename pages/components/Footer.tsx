@@ -3,7 +3,7 @@ import Link from 'next/link';
 function Footer() {
   return (
     <footer className=" bg-black">
-      <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-10 pb-16 place-items-center mx-6 ">
+      <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-10 pb-16 place-items-center mx-6 desktop:mx-8">
         <div className="tablet:justify-self-start mobile:justify-self-center mobile:col-span-1 tablet:col-span-2 desktop:col-span-1">
           <div className="bg-caramel h-1 w-24 mobile:mx-auto tablet:mx-0 desktop:mx-0" />
           <div className="mt-10">

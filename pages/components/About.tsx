@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <section className="grid desktop:grid-cols-2 gap-6 bg-white w-screen pt-32 pb-32 px-6 ">
+    <section className="grid desktop:grid-cols-2 gap-6 bg-white w-screen pt-32 pb-32 px-6">
       <figure className="relative overflow-hidden rounded-lg h-72 w-auto object-cover desktop:h-[588px] desktop:ml-16 grid-flow-col-dense">
         <Image
           className={'absolute'}
@@ -12,7 +12,7 @@ export default function About() {
         />
       </figure>
       <div className="desktop:place-items-start desktop:ml-0 desktop:mr-48 tablet:mx-12 desktop:mx-16">
-        <h5 className="text-xl tablet:text-3xl text-black uppercase font-semibold text-left pt-8 ">
+        <h5 className="text-xl tablet:text-3xl text-black uppercase font-semibold text-left pt-8 mobile:text-center ">
           Bringing you the <span className="text-caramel">best</span> audio gear
         </h5>
         <p className="pt-8 text-center desktop:text-left text-light-black/75 justify-center">

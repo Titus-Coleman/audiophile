@@ -1,9 +1,6 @@
 import IndexLayout from '@/layout';
 import { Manrope } from '@next/font/google';
-import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Product } from '../typings';
-import { fetchProducts } from '../utils/fetchProducts';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
@@ -16,9 +13,9 @@ const manrope = Manrope({
   subsets: ['latin'],
 });
 
-type Props = {
-  products: Product[];
-};
+// type Props = {
+//   products: Product[];
+// };
 
 export default function Home() {
   return (
@@ -45,13 +42,13 @@ export default function Home() {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const products: Product[] = await fetchProducts();
+// export const getStaticProps: GetStaticProps<Props> = async () => {
+//   const products: Product[] = await fetchProducts();
 
-  return {
-    props: {
-      products,
-    },
-    revalidate: 10,
-  };
-};
+//   return {
+//     props: {
+//       products,
+//     },
+//     revalidate: 10,
+//   };
+// };

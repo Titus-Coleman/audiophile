@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 function Categories() {
   return (
-    <section className="py-28 bg-white place-content-center desktop:mx-16">
-      <div className="grid grid-row-3 gap-20 tablet:grid-cols-3 tablet:gap-2 mx-6 ">
+    <section className="py-28 bg-white place-content-center ">
+      <div className="grid grid-row-3 gap-20 tablet:grid-cols-3 tablet:gap-2 mx-6 desktop:mx-8">
         <div className="bg-grey w-auto h-[165px] rounded-xl items-center">
           <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
             <Image

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="bg-black">
-      <div className="desktop:mx-16">
+    <nav className="bg-black sticky">
+      <div className="desktop:mx-8">
         <div className="navbar bg-black">
           <div className="flex-none">
             <button className="btn btn-square btn-ghost">
