@@ -9,8 +9,8 @@ type Props = {
 };
 
 function index({ products }: Props) {
-  const earphones = products.filter((cans) => {
-    return cans.category === 'Earphones';
+  const earphones = products.filter((val) => {
+    return val.category === 'Earphones';
   });
 
   return (

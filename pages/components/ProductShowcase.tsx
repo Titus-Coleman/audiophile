@@ -3,8 +3,8 @@ import { BlackButton, ClearButton } from './Button';
 
 function ProductShowcase() {
   return (
-    <div className="flex flex-col px-6 bg-white gap-6">
-      <div className="bg-caramel bg-circles bg-bottom desktop:bg-left bg-no-repeat text-white w-auto h-[600px] rounded-xl desktop:mx-16">
+    <div className="flex flex-col bg-white gap-6">
+      <div className="bg-caramel bg-circles bg-bottom desktop:bg-left bg-no-repeat text-white w-auto h-[600px] rounded-xl desktop:mx-20 tablet:mx-8 mobile:mx-4">
         <div className="grid  mobile:grid-col-1  mobile:mx-6 tablet:mx-56 desktop:grid-cols-2 desktop:mt-40 desktop:gap-12 gap-8">
           <div className="w-40 h-48 relative justify-self-center object-cover mt-12 desktop:row-span-4">
             <Image
@@ -39,7 +39,7 @@ function ProductShowcase() {
           </div>
         </div>
       </div>
-      <div className=" text-black w-auto h-80 rounded-xl relative overflow-hidden desktop:mx-16">
+      <div className=" text-black w-auto h-80 rounded-xl relative overflow-hidden desktop:mx-20 tablet:mx-8 mobile:mx-4">
         <div className="absolute top-20 z-10 py-6 px-6 space-y-6">
           <h3 className="text-xl text-center font-semibold mb-6">
             ZX7 SPEAKER
@@ -55,7 +55,7 @@ function ProductShowcase() {
           />
         </div>
       </div>
-      <div className="grid grid-flow-row tablet:grid-flow-col tablet:auto-cols-fr gap-6 desktop:mx-16 ">
+      <div className="grid grid-flow-row tablet:grid-flow-col tablet:auto-cols-fr gap-6 desktop:mx-20 tablet:mx-8 mobile:mx-4">
         <div className="relative overflow-hidden rounded-xl h-52 w-auto desktop:h-80">
           <Image
             className="absolute"

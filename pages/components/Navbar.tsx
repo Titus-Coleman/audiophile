@@ -3,10 +3,10 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <nav className="bg-black sticky">
-      <div className="desktop:mx-8">
+      <div className="desktop:mx-20 tablet:mx-8">
         <div className="navbar bg-black">
           <div className="flex-none">
-            <button className="btn btn-square btn-ghost">
+            <button className="btn btn-square btn-ghost desktop:hidden">
               <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
                 <g fill="#FFF" fillRule="evenodd">
                   <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
@@ -28,19 +28,19 @@ export default function Navbar() {
           </div>
 
           <div className="desktop:flex desktop:flex-row desktop:gap-8 desktop:text-white desktop:visible desktop:mr-96 tablet:invisible mobile:invisible mobile:hidden">
-            <Link className="hover:text-caramel" href={'#home'}>
+            <Link className="hover:text-caramel" href={'/'}>
               HOME
             </Link>
 
-            <Link className="hover:text-caramel" href={'#headphones'}>
+            <Link className="hover:text-caramel" href={'/headphones'}>
               HEADPHONES
             </Link>
 
-            <Link className="hover:text-caramel" href={'#speakers'}>
+            <Link className="hover:text-caramel" href={'/speakers'}>
               SPEAKERS
             </Link>
 
-            <Link className="hover:text-caramel" href={'#earphones'}>
+            <Link className="hover:text-caramel" href={'/earphones'}>
               EARPHONES
             </Link>
           </div>

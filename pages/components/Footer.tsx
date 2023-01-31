@@ -3,7 +3,7 @@ import Link from 'next/link';
 function Footer() {
   return (
     <footer className=" bg-black">
-      <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-10 pb-16 place-items-center mx-6 desktop:mx-8">
+      <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-10 pb-16 place-items-center mobile:mx-4 tablet:mx-8 desktop:mx-20">
         <div className="tablet:justify-self-start mobile:justify-self-center mobile:col-span-1 tablet:col-span-2 desktop:col-span-1">
           <div className="bg-caramel h-1 w-24 mobile:mx-auto tablet:mx-0 desktop:mx-0" />
           <div className="mt-10">
@@ -18,19 +18,19 @@ function Footer() {
         </div>
 
         <div className="flex flex-col mobile:items-center tablet:flex-row gap-4 tablet:justify-self-start desktop:justify-self-end ">
-          <Link className="hover:text-caramel" href={'#home'}>
+          <Link className="hover:text-caramel" href={'/'}>
             HOME
           </Link>
 
-          <Link className="hover:text-caramel" href={'#headphones'}>
+          <Link className="hover:text-caramel" href={'/headphones'}>
             HEADPHONES
           </Link>
 
-          <Link className="hover:text-caramel" href={'#speakers'}>
+          <Link className="hover:text-caramel" href={'/speakers'}>
             SPEAKERS
           </Link>
 
-          <Link className="hover:text-caramel" href={'#earphones'}>
+          <Link className="hover:text-caramel" href={'/earphones'}>
             EARPHONES
           </Link>
         </div>
