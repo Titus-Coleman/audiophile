@@ -42,64 +42,19 @@ export default defineType({
       type: 'text',
     }),
     defineField({
-      name: 'included_item1',
-      title: 'Included Item 1',
-      description: 'included Item 1 Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'included_item1_qty',
-      title: 'Included Item1 QTY',
-      description: 'included Item 1 QTY',
-      type: 'number',
-    }),
-    defineField({
-      name: 'included_item2',
-      title: 'included Item 2',
-      description: 'included Item Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'included_item2_qty',
-      title: 'Included Item 2 QTY',
-      description: 'included Item 2 QTY',
-      type: 'number',
-    }),
-    defineField({
-      name: 'included_item3',
-      title: 'included Item 3',
-      description: 'included Item 3 Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'included_item3_qty',
-      title: 'Included Item 3 QTY',
-      description: 'included Item 3 QTY',
-      type: 'number',
-    }),
-    defineField({
-      name: 'included_item4',
-      title: 'included Item 4',
-      description: 'Feature Item Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'included_item4_qty',
-      title: 'Included Item 4 QTY',
-      description: 'included Item 4 QTY',
-      type: 'number',
-    }),
-    defineField({
-      name: 'included_item5',
-      title: 'included Item 5',
-      description: 'Feature Item Description',
-      type: 'string',
-    }),
-    defineField({
-      name: 'included_item5_qty',
-      title: 'Included Item 5 QTY',
-      description: 'included Item 5 QTY',
-      type: 'number',
+      title: 'Included Items List',
+      type: 'array',
+      name: 'included_items',
+      of: [
+        {
+          type: 'object',
+          name: 'inline',
+          fields: [
+            {type: 'string', name: 'title'},
+            {type: 'number', name: 'amount'},
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'subtitle',

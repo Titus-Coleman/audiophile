@@ -49,6 +49,9 @@ module.exports = {
 
         zx7: "url('/assets/home/mobile/image-speaker-zx7.jpg')",
       },
+      gridTemplateColumns: {
+        two: '50px 1fr',
+      },
     },
   },
   plugins: [require('daisyui')],

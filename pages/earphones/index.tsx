@@ -31,7 +31,7 @@ function index({ products }: Props) {
               <img
                 className="min-h-full min-w-full"
                 src={item?.desktop_image.secure_url}
-                alt="XX99 Mark Two"
+                alt={item?.alt_image_text}
               />
             </picture>
             <div className="flex flex-col place-items-center space-y-6">

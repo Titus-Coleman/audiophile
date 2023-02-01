@@ -22,16 +22,6 @@ export interface Product extends SanityBody {
   price: number;
   summary: string;
   features: string;
-  included_item1: string;
-  included_item1_qty: number;
-  included_item2: string;
-  included_item2_qty: number;
-  included_item3: string;
-  included_item3_qty: number;
-  included_item4: string;
-  included_item4_qty: number;
-  included_item5: string;
-  included_item_qty: number;
   subtitle: string;
   desktop_image: Image;
   mobile_image: Image;
