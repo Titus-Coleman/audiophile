@@ -23,6 +23,7 @@ export interface Product extends SanityBody {
   summary: string;
   features: string;
   subtitle: string;
+  included_items: Array;
   desktop_image: Image;
   mobile_image: Image;
   tablet_image: Image;

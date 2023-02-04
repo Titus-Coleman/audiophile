@@ -12,7 +12,6 @@ function index({ products }: Props) {
   const headphones = products.filter((cans) => {
     return cans.category === 'Headphones';
   });
-  console.log(headphones);
 
   return (
     <CategoryLayout>
@@ -43,7 +42,10 @@ function index({ products }: Props) {
                 {item?.product_name}
               </h4>
               <p className="text-center mb-6 tablet:mx-20">{item.features}</p>
-              <TanButton link={'/'} />
+              <TanButton
+                link={'/headphones/' + item.product_id}
+                uniqueKey={item.product_id}
+              />
             </div>
           </div>
         ))}
@@ -54,7 +56,7 @@ function index({ products }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const products: Product[] = await fetchProducts();
-
+  console.log(products);
   return {
     props: {
       products,

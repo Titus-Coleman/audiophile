@@ -43,7 +43,10 @@ function index({ products }: Props) {
                 {item?.product_name}
               </h4>
               <p className="text-center mb-6 tablet:mx-20">{item.features}</p>
-              <TanButton link={'/'} />
+              <TanButton
+                link={'/speakers/' + item.product_id}
+                key={item.product_id}
+              />
             </div>
           </div>
         ))}
