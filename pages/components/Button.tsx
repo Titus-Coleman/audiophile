@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
 interface Props {
-  link: string;
+  link?: string;
   uniqueKey?: string;
+  onClick?: () => void;
 }
 
 export const ClearButton = ({ link }: Props) => {
@@ -25,9 +26,9 @@ export const BlackButton = ({ link }: Props) => {
   );
 };
 
-export const AddToCartButton = ({ link, uniqueKey }: Props) => {
+export const AddToCartButton = ({ link, uniqueKey, onClick }: Props) => {
   return (
-    <Link href={{ pathname: link }} key={uniqueKey}>
+    <Link href={{ pathname: link }} key={uniqueKey} onClick={onClick}>
       <button className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude">
         ADD TO CART
       </button>

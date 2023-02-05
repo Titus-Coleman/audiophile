@@ -1,3 +1,4 @@
+import { useStateContext } from '@/Context/StateContext';
 import CategoryLayout from '@/layout/CategoryLayout';
 import { Product } from '@/typings';
 import { fetchProducts } from '@/utils/fetchProducts';
@@ -6,7 +7,10 @@ import Link from 'next/link';
 import { Key } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import TanButton, { AddToCartButton } from '../components/Button';
+
 const Item = (props: { item: Product }) => {
+  const { increaseQty, decreaseQty, qty, onAdd } = useStateContext();
+
   return (
     <CategoryLayout>
       <section className="bg-white">
@@ -44,15 +48,15 @@ const Item = (props: { item: Product }) => {
               </p>
               <div className="inline-flex gap-4 mobile:items-left">
                 <div className="bg-grey h-12 w-40 p-4 inline-flex justify-between">
-                  <span>
+                  <span className="hover:text-black" onClick={decreaseQty}>
                     <AiOutlineMinus />
                   </span>
-                  <span>1</span>
-                  <span>
+                  <span className="text-black">{qty}</span>
+                  <span className="hover:text-black" onClick={increaseQty}>
                     <AiOutlinePlus />
                   </span>
                 </div>
-                <AddToCartButton link={'/'} uniqueKey={''} />
+                <AddToCartButton onClick={() => onAdd(props.item, qty)} />
               </div>
             </div>
           </div>

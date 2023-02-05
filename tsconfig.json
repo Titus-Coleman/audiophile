@@ -32,7 +32,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "Context/StateContext.js"
   ],
   "exclude": [
     "node_modules"
