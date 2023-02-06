@@ -29,6 +29,7 @@ export interface Product extends SanityBody {
   tablet_image: Image;
   category_preview_img: Image;
   alt_image_text: string;
+  cart_image: Image;
   gallery1: Image;
   gallery2: Image;
   gallery3: Image;

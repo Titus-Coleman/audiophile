@@ -105,6 +105,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'cart_image',
+      title: 'Cart Image',
+      type: 'cloudinary.asset',
+      description: 'IMGs from Cloudinary',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'gallery1',
       title: 'Gallery Image 1',
       type: 'cloudinary.asset',
