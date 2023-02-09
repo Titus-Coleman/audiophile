@@ -18,6 +18,7 @@ export interface Product extends SanityBody {
   _type: 'product';
   product_name: string;
   product_id: string;
+  device: string;
   category: string;
   price: number;
   summary: string;

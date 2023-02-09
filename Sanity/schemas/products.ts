@@ -18,6 +18,15 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'device',
+      title: 'Device',
+      description: 'Device ID for unique URL',
+      type: 'slug',
+      options: {
+        source: 'product_id',
+      },
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       description: 'Product Category',

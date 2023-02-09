@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { IconContext } from 'react-icons';
+import {
+  AiOutlineCloseCircle,
+  AiOutlineMinus,
+  AiOutlinePlus,
+} from 'react-icons/ai';
 
 function Cart() {
   return (
@@ -34,6 +39,11 @@ function Cart() {
                   <AiOutlinePlus />
                 </span>
               </div>
+              <IconContext.Provider value={{ color: 'red' }}>
+                <span>
+                  <AiOutlineCloseCircle />
+                </span>
+              </IconContext.Provider>
             </div>
           </div>
           <div className="inline-flex justify-between">

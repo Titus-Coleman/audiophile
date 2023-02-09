@@ -6,10 +6,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { Key } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import TanButton, { AddToCartButton } from '../components/Button';
+import TanButton from '../components/Button';
 
 const Item = (props: { item: Product }) => {
-  const { increaseQty, decreaseQty, qty, onAdd } = useStateContext();
+  const { increaseQty, decreaseQty, qty, onAdd }: any = useStateContext();
 
   return (
     <CategoryLayout>
@@ -26,11 +26,11 @@ const Item = (props: { item: Product }) => {
             <picture className="rounded-xl overflow-hidden object-fit">
               <img
                 className="h-auto min-w-full"
-                srcSet="/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg 1024w,
-                /assets/product-xx99-mark-one-headphones/tablet/image-product.jpg 500w,
-                /assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 320w"
-                src="/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg"
-                alt="alt text"
+                // srcSet="{prop} 1024w,
+                // /assets/product-xx99-mark-one-headphones/tablet/image-product.jpg 500w,
+                // /assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 320w"
+                src={props.item.desktop_image.secure_url}
+                alt={props.item.alt_image_text}
               />
             </picture>
             <div className="flex flex-col space-y-6 mb-20">
@@ -56,7 +56,14 @@ const Item = (props: { item: Product }) => {
                     <AiOutlinePlus />
                   </span>
                 </div>
-                <AddToCartButton onClick={() => onAdd(props.item, qty)} />
+                {/* IS A UNIQUE KEY NEEDED??? */}
+                <button
+                  type="button"
+                  className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude"
+                  onClick={() => onAdd(props.item, qty)}
+                >
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>
