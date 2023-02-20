@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import { useRef } from 'react';
+
+import { useStateContext } from '@/Context/StateContext';
 import Link from 'next/link';
 import { IconContext } from 'react-icons';
 import {
@@ -8,12 +11,23 @@ import {
 } from 'react-icons/ai';
 
 function Cart() {
+  const cartRef = useRef<any>();
+  const { totalQuantities, setShowCart } = useStateContext();
+
   return (
-    <div className="bg-white rounded-xl mobile:w-[370px]">
+    <div
+      className="bg-white rounded-xl mobile:w-[370px] absolute z-10 top-20 left-3/4"
+      ref={cartRef}
+    >
       <div className="h-auto p-8">
+        <button type="button" onClick={() => setShowCart(false)}>
+          showcart
+        </button>
         <div className=" grid grid-cols-1 gap-6">
           <div className="inline-flex justify-between">
-            <h6 className="text-black font-semibold">CART (1)</h6>
+            <h6 className="text-black font-semibold">
+              CART ({totalQuantities} items)
+            </h6>
             <span className="text-black/50">Remove all</span>
           </div>
           <div id="items" className="grid grid-cols-1 gap-2">

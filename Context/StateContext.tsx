@@ -14,7 +14,7 @@ interface CartProducts {
 const Context = createContext({});
 
 export const StateContext = ({ children }: Props) => {
-  const [showCart, setCart] = useState<boolean>(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<CartProducts[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalQuantities, setTotalQuantities] = useState<number>(0);
@@ -32,8 +32,8 @@ export const StateContext = ({ children }: Props) => {
   };
 
   const onAdd = (product: Product, quantity: number) => {
-    const checkProductInCart = cartItems?.find(
-      (item) => item.itemInCart?.product_id === product.product_id
+    const checkProductInCart = cartItems.find(
+      (item) => item.itemInCart.product_id === product.product_id
     );
     if (checkProductInCart) {
       setTotalPrice(
@@ -49,14 +49,15 @@ export const StateContext = ({ children }: Props) => {
               ...cartProduct,
               quantity: cartProduct.quantity + quantity,
             };
+        } else {
+          cartProduct.quantity = quantity;
+          setCartItems([...cartItems]);
         }
       });
       setCartItems(updatedCartItems as CartProducts[]);
-    } else {
-      // cartProduct.quantity = quantity;
-      setCartItems([...cartItems]);
     }
     toast.success(`${qty} ${product.product_name} added to the cart`);
+    console.log(cartItems);
   };
 
   const increaseTotalQty = () => {
@@ -69,7 +70,7 @@ export const StateContext = ({ children }: Props) => {
   //   setCartItems((prevItems) => prevItems + 1);
   // };
   const toggleCart = () => {
-    setCart((prevToggle) => !prevToggle);
+    setShowCart((prevToggle) => !prevToggle);
   };
 
   return (

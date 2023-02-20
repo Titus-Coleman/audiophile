@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "Context/StateContext.tsx"
+    "Context/StateContext_old.tsx"
   ],
   "exclude": [
     "node_modules"

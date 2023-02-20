@@ -9,7 +9,17 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import TanButton from '../components/Button';
 
 const Item = (props: { item: Product }) => {
-  const { increaseQty, decreaseQty, qty, onAdd }: any = useStateContext();
+  const {
+    qty,
+    // getItemQty,
+    increaseQty,
+    decreaseQty,
+    increaseCartQty,
+    // decreaseCartQty,
+    // removeFromCart,
+  } = useStateContext();
+
+  // const quantity = getItemQty(props.item._id);
 
   return (
     <CategoryLayout>
@@ -26,9 +36,6 @@ const Item = (props: { item: Product }) => {
             <picture className="rounded-xl overflow-hidden object-fit">
               <img
                 className="h-auto min-w-full"
-                // srcSet="{prop} 1024w,
-                // /assets/product-xx99-mark-one-headphones/tablet/image-product.jpg 500w,
-                // /assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 320w"
                 src={props.item.desktop_image.secure_url}
                 alt={props.item.alt_image_text}
               />
@@ -56,11 +63,11 @@ const Item = (props: { item: Product }) => {
                     <AiOutlinePlus />
                   </span>
                 </div>
-                {/* IS A UNIQUE KEY NEEDED??? */}
+
                 <button
                   type="button"
                   className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude"
-                  onClick={() => onAdd(props.item, qty)}
+                  onClick={() => increaseCartQty(props.item._id)}
                 >
                   ADD TO CART
                 </button>
@@ -136,7 +143,7 @@ const Item = (props: { item: Product }) => {
                 </picture>
                 <div className="mx-auto text-center">
                   <h5 className="mb-4">XX99 Mark I</h5>
-                  <TanButton link={'/'} uniqueKey={''} />
+                  <TanButton link={'/'} />
                 </div>
               </div>
               <div className="flex flex-col">
@@ -149,7 +156,7 @@ const Item = (props: { item: Product }) => {
                 </picture>
                 <div className="mx-auto text-center">
                   <h5 className="mb-4">XX59</h5>
-                  <TanButton link={'/'} uniqueKey={''} />
+                  <TanButton link={'/'} />
                 </div>
               </div>
               <div className="flex flex-col">

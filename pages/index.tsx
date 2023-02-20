@@ -41,14 +41,3 @@ export default function Home() {
     </>
   );
 }
-
-// export const getStaticProps: GetStaticProps<Props> = async () => {
-//   const products: Product[] = await fetchProducts();
-
-//   return {
-//     props: {
-//       products,
-//     },
-//     revalidate: 10,
-//   };
-// };
