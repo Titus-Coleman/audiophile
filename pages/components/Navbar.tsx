@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Cart from './Cart';
 
 const Navbar = () => {
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { showCart, setShowCart, totalQuantities }: any = useStateContext();
 
   return (
     <>
@@ -87,7 +87,6 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-      {/* <Cart /> */}
     </>
   );
 };

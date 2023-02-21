@@ -1,77 +1,114 @@
+import { useStateContext } from '@/Context/StateContext';
 import Image from 'next/image';
 import { useRef } from 'react';
-
-import { useStateContext } from '@/Context/StateContext';
-import Link from 'next/link';
 import { IconContext } from 'react-icons';
 import {
   AiOutlineCloseCircle,
   AiOutlineMinus,
   AiOutlinePlus,
+  AiOutlineShopping,
 } from 'react-icons/ai';
+// import { toast } from 'react-hot-toast';
 
 function Cart() {
   const cartRef = useRef<any>();
-  const { totalQuantities, setShowCart } = useStateContext();
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQty,
+    onRemove,
+  }: any = useStateContext();
 
   return (
     <div
-      className="bg-white rounded-xl mobile:w-[370px] absolute z-10 top-20 left-3/4"
+      className="bg-white rounded-xl mobile:w-[370px] absolute z-10 top-5 right-1"
       ref={cartRef}
     >
-      <div className="h-auto p-8">
+      <div className="h-auto p-6">
         <button type="button" onClick={() => setShowCart(false)}>
-          showcart
+          CLOSE
         </button>
         <div className=" grid grid-cols-1 gap-6">
+          {/* CART HEADER */}
           <div className="inline-flex justify-between">
             <h6 className="text-black font-semibold">
-              CART ({totalQuantities} items)
+              CART: ({totalQuantities}) items
             </h6>
-            <span className="text-black/50">Remove all</span>
+            {/* <span className="text-black/50">Remove all</span> */}
           </div>
+
+          {/* CART BODY */}
           <div id="items" className="grid grid-cols-1 gap-2">
-            <div className="inline-flex items-center justify-between">
-              <picture className="relative w-16 h-16 overflow-hidden rounded-xl">
-                <Image
-                  className="absolute"
-                  src="/assets/cart/image-xx59-headphones.jpg"
-                  alt=""
-                  fill
-                />
-              </picture>
-              <div className="grid grid-cols-1">
-                <p className="text-black">XX99 MKII</p>
-                <p className="text-black/50">$2,999</p>
-              </div>
-              <div className="bg-grey h-12 w-24 p-4 inline-flex justify-between">
-                <span className="hover:text-black">
-                  <AiOutlineMinus />
-                </span>
-                <span className="text-black">1</span>
-                <span className="hover:text-black">
-                  <AiOutlinePlus />
-                </span>
-              </div>
-              <IconContext.Provider value={{ color: 'red' }}>
-                <span>
-                  <AiOutlineCloseCircle />
-                </span>
-              </IconContext.Provider>
+            {cartItems.length >= 1 &&
+              cartItems.map((item: any) => (
+                <div
+                  key={item.product_id}
+                  className="grid grid-cols-4 justify-between items-center gap-8"
+                >
+                  <picture className="relative w-16 h-16 overflow-hidden rounded-xl mr-4">
+                    <Image
+                      className="absolute object-cover"
+                      src={item.cart_image.secure_url}
+                      alt=""
+                      fill
+                    />
+                  </picture>
+                  <div className="grid grid-cols-1">
+                    <p className="text-black">{item.product_name}</p>
+                    <p className="text-black/50">${item.price}</p>
+                  </div>
+                  <div className="bg-grey h-12 w-24 p-4 inline-flex justify-between mx-4">
+                    <span
+                      className="hover:text-black"
+                      onClick={() => toggleCartItemQty(item._id, 'dec')}
+                    >
+                      <AiOutlineMinus />
+                    </span>
+                    <span className="text-black">{item.quantity}</span>
+                    <span
+                      className="hover:text-black"
+                      onClick={() => toggleCartItemQty(item._id, 'inc')}
+                    >
+                      <AiOutlinePlus />
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    className="mx-8"
+                    onClick={() => onRemove(item)}
+                  >
+                    <IconContext.Provider value={{ color: 'red' }}>
+                      <span>
+                        <AiOutlineCloseCircle />
+                      </span>
+                    </IconContext.Provider>
+                  </button>
+                </div>
+              ))}
+
+            {/* CART FOOTER */}
+            <div className="inline-flex justify-between">
+              <span className="text-black/50">SUBTOTAL</span>
+              <span className="text-black">${totalPrice}</span>
+            </div>
+            <div>
+              <button
+                type="button"
+                className="w-full h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude"
+              >
+                Pay With Stripe
+              </button>
             </div>
           </div>
-          <div className="inline-flex justify-between">
-            <span className="text-black/50">TOTAL</span>
-            <span className="text-black">$5,396</span>
-          </div>
-          <div>
-            <Link href={'/'}>
-              <button className="w-full h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude">
-                CHECKOUT
-              </button>
-            </Link>
-          </div>
         </div>
+        {cartItems.length < 1 && (
+          <div className="flex flex-col">
+            <AiOutlineShopping className="mx-auto" size={150} />
+            <h3 className="mx-auto">Your Shopping cart is empty</h3>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -9,17 +9,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import TanButton from '../components/Button';
 
 const Item = (props: { item: Product }) => {
-  const {
-    qty,
-    // getItemQty,
-    increaseQty,
-    decreaseQty,
-    increaseCartQty,
-    // decreaseCartQty,
-    // removeFromCart,
-  } = useStateContext();
-
-  // const quantity = getItemQty(props.item._id);
+  const { qty, onAdd, increaseQty, decreaseQty }: any = useStateContext();
 
   return (
     <CategoryLayout>
@@ -67,7 +57,7 @@ const Item = (props: { item: Product }) => {
                 <button
                   type="button"
                   className="w-40 h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude"
-                  onClick={() => increaseCartQty(props.item._id)}
+                  onClick={() => onAdd(props.item, qty)}
                 >
                   ADD TO CART
                 </button>
