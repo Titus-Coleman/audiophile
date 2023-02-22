@@ -9,7 +9,6 @@ import {
   AiOutlinePlus,
   AiOutlineShopping,
 } from 'react-icons/ai';
-import getStripe from '../../lib/getStripe';
 
 function Cart() {
   const cartRef = useRef<any>();
@@ -23,7 +22,7 @@ function Cart() {
   }: any = useStateContext();
 
   const handleCheckout = async () => {
-    const stripe = await getStripe();
+    // const stripe = await getStripe();
 
     const response = await fetch('/api/stripe', {
       method: 'POST',
@@ -35,7 +34,7 @@ function Cart() {
 
     if (response.status === 500) return;
 
-    const data = await response.json();
+    // const data = await response.json();
 
     toast.loading('Redirecting...');
 
