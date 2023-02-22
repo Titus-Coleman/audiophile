@@ -20,6 +20,7 @@ export const StateContext = ({ children }: Props) => {
   const [qty, setQty] = useState<number>(1);
 
   let foundProduct: { price: number; quantity: number };
+  // eslint-disable-next-line no-unused-vars
   let index;
 
   const increaseQty = () => {
@@ -35,7 +36,7 @@ export const StateContext = ({ children }: Props) => {
 
   const onAdd = (product: any, quantity: number) => {
     const checkProductInCart = cartItems.find(
-      (item) => item.product_id === product.product_id
+      (item: { product_id: string }) => item.product_id === product.product_id
     );
 
     setTotalPrice(
@@ -44,15 +45,17 @@ export const StateContext = ({ children }: Props) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if (checkProductInCart) {
-      const updatedCartItems = cartItems?.map((cartProduct) => {
-        if (typeof cartProduct.product_id === 'string') {
-          if (cartProduct.product_id === product.product_id)
-            return {
-              ...cartProduct,
-              quantity: cartProduct.quantity + quantity,
-            };
+      const updatedCartItems = cartItems?.map(
+        (cartProduct: { product_id: string; quantity: number }) => {
+          if (typeof cartProduct.product_id === 'string') {
+            if (cartProduct.product_id === product.product_id)
+              return {
+                ...cartProduct,
+                quantity: cartProduct.quantity + quantity,
+              };
+          }
         }
-      });
+      );
       setCartItems(updatedCartItems);
     } else {
       product.quantity = quantity;
@@ -69,9 +72,13 @@ export const StateContext = ({ children }: Props) => {
     setTotalPrice((prevQty) => prevQty + 1);
   };
 
-  const onRemove = (product) => {
-    foundProduct = cartItems.find((item) => item._id === product._id);
-    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+  const onRemove = (product: { _id: string }) => {
+    foundProduct = cartItems.find(
+      (item: { _id: string }) => item._id === product._id
+    );
+    const newCartItems = cartItems.filter(
+      (item: { _id: string }) => item._id !== product._id
+    );
 
     setTotalPrice(
       (prevTotalPrice) =>
@@ -83,10 +90,14 @@ export const StateContext = ({ children }: Props) => {
     setCartItems(newCartItems);
   };
 
-  const toggleCartItemQty = (id, value) => {
-    foundProduct = cartItems.find((item) => item._id === id);
-    index = cartItems.findIndex((product) => product._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id);
+  const toggleCartItemQty = (id: string, value: string) => {
+    foundProduct = cartItems.find((item: { _id: string }) => item._id === id);
+    index = cartItems.findIndex(
+      (product: { _id: string }) => product._id === id
+    );
+    const newCartItems = cartItems.filter(
+      (item: { _id: string }) => item._id !== id
+    );
 
     if (value === 'inc') {
       setCartItems([
