@@ -1,6 +1,7 @@
 import { useStateContext } from '@/Context/StateContext';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { toast } from 'react-hot-toast';
 import { IconContext } from 'react-icons';
 import {
   AiOutlineCloseCircle,
@@ -8,7 +9,7 @@ import {
   AiOutlinePlus,
   AiOutlineShopping,
 } from 'react-icons/ai';
-// import { toast } from 'react-hot-toast';
+import getStripe from '../../lib/getStripe';
 
 function Cart() {
   const cartRef = useRef<any>();
@@ -20,6 +21,26 @@ function Cart() {
     toggleCartItemQty,
     onRemove,
   }: any = useStateContext();
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.status === 500) return;
+
+    const data = await response.json();
+
+    toast.loading('Redirecting...');
+
+    // return stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <div
@@ -95,6 +116,7 @@ function Cart() {
             </div>
             <div>
               <button
+                onClick={handleCheckout}
                 type="button"
                 className="w-full h-12 text-sub-title font-medium text-white bg-caramel hover:bg-nude"
               >

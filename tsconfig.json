@@ -33,7 +33,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "Context/StateContext_old.tsx"
+    "Context/StateContext_old.tsx",
+    "pages/api/stripe.js"
   ],
   "exclude": [
     "node_modules"
