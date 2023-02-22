@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-function Categories() {
+function MenuCategories() {
   return (
-    <section className="py-28 bg-white place-content-center z-0">
-      <div className="grid grid-row-3 gap-20 tablet:grid-cols-3 tablet:gap-2 desktop:mx-20 mobile:mx-4 tablet:mx-8">
-        <div className="bg-grey w-auto h-[165px] rounded-xl items-center relative">
-          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
+    <section className="py-14 z-50 place-content-center absolute top-14 -left-2 bg-grey">
+      <div className="grid grid-row-3 tablet:grid-cols-3 tablet:gap-2 desktop:mx-20 mobile:mx-4 tablet:mx-8">
+        <div className="grid grid-cols-2 w-72 rounded-xl items-center gap-8">
+          <figure className="relative mx-auto w-32 h-32 object-cover">
             <Image
               className={'absolute'}
               src={
@@ -37,8 +37,8 @@ function Categories() {
             </Link>
           </div>
         </div>
-        <div className="bg-grey w-auto h-[165px] rounded-xl">
-          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
+        <div className="grid grid-cols-2 w-72 rounded-xl items-center gap-8">
+          <figure className="relative mx-auto w-32 h-32 object-cover">
             <Image
               className={'absolute'}
               src={
@@ -69,8 +69,8 @@ function Categories() {
             </Link>
           </div>
         </div>
-        <div className="bg-grey w-auto h-[165px] rounded-xl">
-          <figure className="relative mx-auto w-32 h-32 object-cover -top-12">
+        <div className="grid grid-cols-2 w-72 rounded-xl items-center gap-8">
+          <figure className="relative mx-auto w-32 h-32 object-cover">
             <Image
               className={'absolute'}
               src={
@@ -106,4 +106,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default MenuCategories;

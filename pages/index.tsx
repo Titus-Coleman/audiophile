@@ -13,10 +13,6 @@ const manrope = Manrope({
   subsets: ['latin'],
 });
 
-// type Props = {
-//   products: Product[];
-// };
-
 export default function Home() {
   return (
     <>

@@ -1,9 +1,13 @@
 import { useStateContext } from '@/Context/StateContext';
 import Link from 'next/link';
+import { useState } from 'react';
 import Cart from './Cart';
+import MenuCategories from './MenuCategories';
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities }: any = useStateContext();
+
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <>
@@ -11,8 +15,11 @@ const Navbar = () => {
         <nav className="bg-black sticky">
           <div className="desktop:mx-20 tablet:mx-8">
             <div className="navbar bg-black">
-              <div className="flex-none">
-                <button className="btn btn-square btn-ghost desktop:hidden">
+              <div className="flex-none relative">
+                <button
+                  onClick={() => setShowMenu(true)}
+                  className="btn btn-square btn-ghost desktop:hidden"
+                >
                   <svg
                     width="16"
                     height="15"
@@ -23,10 +30,11 @@ const Navbar = () => {
                     </g>
                   </svg>
                 </button>
+                {showMenu && <MenuCategories />}
               </div>
               {/*AudioPhile Logo */}
               <div className="flex-1 justify-center tablet:justify-start">
-                <a className="btn btn-ghost normal-case text-xl ">
+                <Link className="btn btn-ghost normal-case text-xl " href={'/'}>
                   <svg
                     width="143"
                     height="25"
@@ -38,7 +46,7 @@ const Navbar = () => {
                       fillRule="nonzero"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Page Links */}
